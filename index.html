@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>ArcGIS JS Sample Map</title>
+
+  <!-- ArcGIS API for JavaScript（4.x）のCSSとJSをCDNから読み込み -->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css" />
+  <script src="https://js.arcgis.com/4.29/"></script>
+
+  <style>
+    html, body, #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <!-- 地図を表示する領域 -->
+  <div id="viewDiv"></div>
+
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/MapView"
+    ], function (Map, MapView) {
+
+      // ベースマップの設定
+      const map = new Map({
+        basemap: "streets-navigation-vector"  // 他に "topo-vector" なども可
+      });
+
+      // 表示する範囲・拡大縮小などの設定
+      const view = new MapView({
+        container: "viewDiv", // 上の <div id="viewDiv"> に描画
+        map: map,
+        center: [138.187, 36.651], // 長野駅付近 [経度, 緯度]
+        zoom: 12
+      });
+    });
+  </script>
+</body>
+</html>
