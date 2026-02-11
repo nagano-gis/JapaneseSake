@@ -1,0 +1,30 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<canvas id="radarChart" width="300" height="300"></canvas>
+
+<script>
+  const radarCtx = document.getElementById('radarChart').getContext('2d');
+  const radarChart = new Chart(radarCtx, {
+    type: 'radar',
+    data: {
+      labels: ['スピード', 'パワー', 'テクニック', 'スタミナ', '集中力'],
+      datasets: [{
+        label: '選手A',
+        data: [65, 59, 90, 81, 56],
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        pointBackgroundColor: 'rgba(255, 99, 132, 1)'
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        r: {
+          angleLines: { display: true },
+          suggestedMin: 0,
+          suggestedMax: 100
+        }
+      }
+    }
+  });
+</script>
