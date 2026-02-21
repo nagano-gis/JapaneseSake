@@ -25,7 +25,7 @@ html, body {
   margin: 0;
 }
 
-/* ===== 3カラムレイアウト ===== */
+/* ===== 3カラムレイアウト ==== */
 #layout {
   display: grid;
   grid-template-columns: 360px 1fr 420px; /* 左：編集 / 中：地図 / 右：結果 */
