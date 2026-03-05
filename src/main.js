@@ -2,8 +2,10 @@ import "./style.css";
 
 import { FEATURE_KEYS, FEATURE_LABELS } from "./config/features.js";
 
-import { initMap } from "./map/initMap.js";
-import { syncToMap } from "./map/sync.js";
+// import { initMap } from "./map/initMap.js";
+import { initMap } from "./map/initMap.stub.js";
+// import { syncToMap } from "./map/sync.js";
+import { syncToMap } from "./map/sync.stub.js";
 
 import { loadLayerRows } from "./data/sourceFeatureLayer.js";
 import { buildStore } from "./data/store.js";
