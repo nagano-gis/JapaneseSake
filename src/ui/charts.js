@@ -70,7 +70,7 @@ export function renderQueryRadar(queryVec) {
       animation: false,
       plugins: { legend: { display: false } },
       scales: {
-        r: { min: 0, max: 1, ticks: { stepSize: 0.25, display: true } }
+        r: { min: 0, max: 1, ticks: { stepSize: 0.2, display: true } }
       }
     }
   });
@@ -106,7 +106,10 @@ export function renderResultRadars(top) {
         responsive: false,
         animation: false,
         plugins: { legend: { display: false }, tooltip: { enabled: true } },
-        scales: { r: { min: 0, max: 1, ticks: { display: false }, pointLabels: { display: false } } }
+        scales: { 
+          // r: { min: 0, max: 1, ticks: { display: false }, pointLabels: { display: false } } 
+          r: { min: 0, max: 1, ticks: { stepSize: 0.2, display: true } }
+        }
       }
     });
 

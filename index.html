@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="layout">
-      <aside class="left">
+      <!-- <aside class="left">
         <div id="queryDiv"></div>
 
         <div class="filters">
@@ -17,15 +17,51 @@
           <div id="filter-keywords"></div>
           <div id="filter-ranking"></div>
         </div>
+      </aside> -->
+      <aside class="left">
+        <calcite-tabs layout="inline">
+          <calcite-tab-nav slot="title-group">
+            <calcite-tab-title active>その他</calcite-tab-title>
+            <calcite-tab-title>レーダー＋フレーバ</calcite-tab-title>
+          </calcite-tab-nav>
 
-        <div id="resultsDiv"></div>
+          <!-- 1) その他 -->
+          <calcite-tab active>
+            <div class="filters">
+              <div id="filter-name"></div>
+              <div id="filter-prefecture"></div>
+              <div id="filter-category"></div>
+              <div id="filter-ranking"></div>
+            </div>
+          </calcite-tab>
+
+          <!-- 2) レーダー + フレーバ（上下に積む） -->
+          <calcite-tab>
+            <div class="advanced-stack">
+              <section class="panel">
+                <h3 class="panel-title">レーダー</h3>
+                <div id="tab-radar"></div>
+              </section>
+
+              <section class="panel">
+                <h3 class="panel-title">フレーバータグ（AND）</h3>
+                <div id="tab-keywords"></div>
+              </section>
+            </div>
+          </calcite-tab>
+        </calcite-tabs>
       </aside>
+      
 
-      <main class="right">
+      <main class="center">
+        <!-- 将来ここに地図 -->
         <div id="viewDiv"></div>
       </main>
-    </div>
 
+      <aside class="right">
+        <div id="resultsDiv"></div>
+      </aside>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 

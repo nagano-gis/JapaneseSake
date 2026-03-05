@@ -1,3 +1,8 @@
+import "@esri/calcite-components/main.css";
+import { defineCustomElements } from "@esri/calcite-components/dist/loader";
+
+defineCustomElements(window);
+
 import "./style.css";
 
 import { FEATURE_KEYS, FEATURE_LABELS } from "./config/features.js";
@@ -118,12 +123,24 @@ if (!resultsDiv) throw new Error("#resultsDiv が見つかりません。");
     // 各フィルターのUIを初期化
     fm.initAll({
       rootMap: {
-        radar: queryDiv,
+
+        // その他タブ
         name: document.querySelector("#filter-name"),
         prefecture: document.querySelector("#filter-prefecture"),
         category: document.querySelector("#filter-category"),
-        keywords: document.querySelector("#filter-keywords"),
-        ranking: document.querySelector("#filter-ranking")
+        ranking: document.querySelector("#filter-ranking"),
+
+        // 2タブ目（上下）
+        radar: document.querySelector("#tab-radar"),
+        keywords: document.querySelector("#tab-keywords"),
+
+
+        // radar: queryDiv,
+        // name: document.querySelector("#filter-name"),
+        // prefecture: document.querySelector("#filter-prefecture"),
+        // category: document.querySelector("#filter-category"),
+        // keywords: document.querySelector("#filter-keywords"),
+        // ranking: document.querySelector("#filter-ranking")
       },
       data: store.rows,
       onChange: update
