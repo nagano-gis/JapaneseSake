@@ -139,7 +139,7 @@ html, body {
   padding: 6px 8px;
   margin-bottom: 8px;
 }
-
+/* 
 .kw-list {
   max-height: 240px;
   overflow: auto;
@@ -148,13 +148,44 @@ html, body {
   border-radius: 6px;
 }
 
-.kw-item {
+/* --- キーワード行：チェックボックス列 + テキスト列を固定 --- */
+/* .kw-item{
+  display: grid;
+  grid-template-columns: 18px 1fr; /* 左: checkbox, 右: text */
+  /* gap: 8px;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+} */ */
+
+/* checkbox を中央寄せ */
+/* .kw-item input[type="checkbox"]{
+  margin: 0;
+  width: 16px;
+  height: 16px;
+} */
+
+/* テキストは折り返し可（横はみ出し防止） */
+/* .kw-item span{
+  min-width: 0;
+  overflow-wrap: anywhere;  /* 長い単語でも折り返す */
+  /* word-break: break-word; */
+
+
+/* .kw-item {
   display: flex;
   gap: 8px;
   align-items: center;
   margin: 4px 0;
   font-size: 13px;
-}
+} */
+
+
+/* 長い文字列を折り返して横はみ出しを防ぐ */
+/* .kw-item span {
+  overflow-wrap: anywhere; /* どこでも折り返し可 */
+  /* word-break: break-word; /* 古いブラウザ向け */
+
 
 
 /* --- 強制：左右カラムは白背景、黒文字 --- */
@@ -173,4 +204,93 @@ html, body {
 body {
   background: #ffffff;
   color: #111111;
+}
+
+/* 左カラム全体：横スクロールを出さない */
+.left {
+  overflow-x: hidden;
+}
+
+/* Calciteタブ内：横スクロールを出さない */
+calcite-tabs,
+calcite-tab,
+calcite-tab > * {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* grid/flex の子が縮められず横スクロールになるのを防ぐ */
+.left,
+.right,
+.center,
+.filters,
+.advanced-stack,
+.panel {
+  min-width: 0;
+}
+
+/* 念のため、タブの中のdivも */
+#tab-radar,
+#tab-keywords,
+#filter-name,
+#filter-prefecture,
+#filter-category,
+#filter-ranking {
+  min-width: 0;
+}
+
+/* 入力類は親幅に収める */
+.left input,
+.left select,
+.left textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+/* Calciteの入力系も幅100%（必要なら） */
+calcite-input,
+calcite-select,
+calcite-combobox {
+  width: 100%;
+  max-width: 100%;
+}
+
+
+
+/* たくさんのチェック項目：横に並べて、適切なところで折り返す（Grid推奨） */
+.kw-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 6px 10px; /* 行間 / 列間 */
+  align-items: start;
+  max-width: 100%;
+}
+
+/* 1項目の見た目：横並び＆折り返し可 */
+.kw-item {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 8px;
+  align-items: center;
+
+  padding: 6px 8px;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  background: #fff;
+
+  /* 重要：はみ出し防止 */
+  min-width: 0;
+}
+
+.kw-item input[type="checkbox"] {
+  margin: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.kw-item span {
+  min-width: 0;
+  overflow-wrap: anywhere; /* 長い単語も折り返す */
+  word-break: break-word;
+  line-height: 1.2;
 }

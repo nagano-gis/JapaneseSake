@@ -24,15 +24,15 @@ export function createKeywordsFilter({ tagFields }) {
           ${tagFields.map(f => {
             const label = f.replace("flavortags_", "");
             return `
-              <div class="kw-item" data-tag-item data-tag-label="${label}">
+              <label class="kw-item" data-tag-item data-tag-label="${label}">
                 <input type="checkbox" data-tag="${f}">
                 <span>${label}</span>
-              </div>
+              </label>
             `;
           }).join("")}
         </div>
         <div style="margin-top:8px; font-size:12px; color:#555;">
-          選択したタグが <b>すべて 1</b> のデータだけ残ります（AND）
+          選択したタグを <b>すべて含む</b> データだけ残ります（AND）
         </div>
       `;
 
